@@ -1,4 +1,4 @@
-use mongodb::bson::oid::ObjectId;
+use mongodb::bson::{oid::ObjectId, DateTime};
 use serde::{Serialize, Deserialize};
 
 #[derive(Debug, Serialize, Deserialize)] 
@@ -7,7 +7,8 @@ pub struct User {
     pub id: Option<ObjectId>,
     pub name: String,
     pub email: String, 
+    pub date: DateTime,
     pub password: String,
-    pub date: Date,
-    is_admin: bool
+    #[serde(rename = "isAdmin")]
+    pub is_admin: bool
 }
